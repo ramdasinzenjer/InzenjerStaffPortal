@@ -14,7 +14,7 @@
     android:layout_marginBottom="46dp"
     android:textSize="25dp"
     android:id="@+id/textView"
-    android:layout_above="@+id/editText2"
+    android:layout_above="@+id/username"
     android:layout_centerHorizontal="true" />
 
 <EditText
@@ -23,20 +23,19 @@
     android:hint="Enter user ID"
 
     android:layout_marginBottom="32dp"
-    android:id="@+id/editText2"
+    android:id="@+id/username"
     android:textSize="25dp"
-    android:layout_above="@+id/editText"
-    android:layout_alignLeft="@+id/editText"
-    android:layout_alignStart="@+id/editText"
-    android:layout_alignRight="@+id/editText"
-    android:layout_alignEnd="@+id/editText" />
+    android:layout_above="@+id/userpassword"
+    android:layout_alignLeft="@+id/userpassword"
+    android:layout_alignStart="@+id/userpassword"
+    android:layout_alignRight="@+id/userpassword"
+    android:layout_alignEnd="@+id/userpassword" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter password"
-
-        android:id="@+id/editText"
+        android:id="@+id/userpassword"
         android:inputType="textPassword"
         android:textSize="25dp"
         android:layout_centerVertical="true"
@@ -52,7 +51,7 @@
         android:layout_marginTop="36dp"
         android:clickable="true"
         android:id="@+id/textView2"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/userpassword"
         android:layout_alignRight="@+id/linearLayout"
         android:layout_alignEnd="@+id/linearLayout" />
     <LinearLayout
@@ -74,7 +73,7 @@
             />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/regi_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
