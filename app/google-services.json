@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "784526069171",
+    "firebase_url": "https://inzenjer-staff-portal.firebaseio.com",
+    "project_id": "inzenjer-staff-portal",
+    "storage_bucket": "inzenjer-staff-portal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784526069171:android:e46262c836dc3253",
+        "android_client_info": {
+          "package_name": "com.inzenjer.inzenjerstaffportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784526069171-8mtb3p2c2frqi1pg2cj7aefkil9q611k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj2DLxj_cr5Sq3gCwlwaUmnhESqH3aSIE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

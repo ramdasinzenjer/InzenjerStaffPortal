@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d8f4d7"
+    tools:context="com.inzenjer.inzenjerstaffportal.AppMain">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Welcome to Inzenjer Portal"
+    android:textColor="@color/black"
+    android:layout_marginBottom="46dp"
+    android:textSize="25dp"
+    android:id="@+id/textView"
+    android:layout_above="@+id/editText2"
+    android:layout_centerHorizontal="true" />
+
+<EditText
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="Enter user ID"
+
+    android:layout_marginBottom="32dp"
+    android:id="@+id/editText2"
+    android:textSize="25dp"
+    android:layout_above="@+id/editText"
+    android:layout_alignLeft="@+id/editText"
+    android:layout_alignStart="@+id/editText"
+    android:layout_alignRight="@+id/editText"
+    android:layout_alignEnd="@+id/editText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter password"
+
+        android:id="@+id/editText"
+        android:inputType="textPassword"
+        android:textSize="25dp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:textColor="@color/black"
+        android:layout_marginTop="36dp"
+        android:clickable="true"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/editText"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="32dp"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:text="Sign in"
+            android:textSize="15dp"
+            android:background="@drawable/rounded"
+            />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:text="Register"
+            android:textSize="15dp"
+            android:background="@drawable/roundedn"
+            />
+
+    </LinearLayout>
+</RelativeLayout>
