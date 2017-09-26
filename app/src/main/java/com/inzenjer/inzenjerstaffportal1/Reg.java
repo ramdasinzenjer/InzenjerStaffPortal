@@ -26,10 +26,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.crypto.NullCipher;
+
 public class Reg extends AppCompatActivity {
     Button regg;
     ProgressDialog pg;
-    EditText Firstname , Lastname , Email , Mobile , Password , ConfirmPassword ;
+    EditText Firstname, Lastname, Email, Mobile, Password, ConfirmPassword;
     TextView db;
     SimpleDateFormat dtt;
 
@@ -48,19 +50,70 @@ public class Reg extends AppCompatActivity {
                 Mobile = (EditText) findViewById(R.id.MobileId);
                 Password = (EditText) findViewById(R.id.PasswordId);
                 ConfirmPassword = (EditText) findViewById(R.id.PasswordConfirmId);
+                chechall();
 
-                    signupRequest();
-                    pg = ProgressDialog.show(Reg.this, "Please wait...", "Fetching...", false, false);
 
-                /*else
-                {
-                    Toast.makeText(Reg.this, "Password Dsnt Match", Toast.LENGTH_SHORT).show();
-                }
-*/
             }
         });
     }
 
+    private void chechall()
+    {   int b = 0;
+        String fn = Firstname.getText().toString().trim();
+        String ln = Lastname.getText().toString().trim();
+        String Em = Email.getText().toString().trim();
+        String Mob = Mobile.getText().toString().trim();
+        String Pas = Password.getText().toString().trim();
+        String cn = ConfirmPassword.getText().toString().trim();
+
+        if (fn.matches("")) {
+            Toast.makeText(this, "Enter 1st Name", Toast.LENGTH_SHORT).show();
+            Firstname.requestFocus();
+            b=1;
+        }
+        else if (ln.matches("")) {
+            Toast.makeText(this, "Enter Last Name", Toast.LENGTH_SHORT).show();
+            Lastname.requestFocus();
+            b=1;
+        }
+        else if (Em.matches("")) {
+            Toast.makeText(this, "Enter Email ", Toast.LENGTH_SHORT).show();
+            Email.requestFocus();
+            b=1;
+        }
+        else if(isEmailValid(Em)==false)
+        {
+            Toast.makeText(this, "Enter a valid Email", Toast.LENGTH_SHORT).show();
+            Email.requestFocus();
+            b=1;
+        }
+       else if (Mob.matches("")) {
+            Toast.makeText(this, "Enter Mobile no", Toast.LENGTH_SHORT).show();
+            Mobile.requestFocus();
+            b=1;
+        }
+       else if (Pas.matches("")) {
+            Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show();
+            Password.requestFocus();
+            b=1;
+        }
+        else if (cn.matches("")) {
+            Toast.makeText(this, "Repeat Password", Toast.LENGTH_SHORT).show();
+            ConfirmPassword.requestFocus();
+            b=1;
+        }
+        else if (Pas.matches(cn)==false)
+        {
+            Toast.makeText(this, "Password Mismatch", Toast.LENGTH_SHORT).show();
+            b=1;
+        }
+        else if (b==0)
+        {
+            signupRequest();
+            pg = ProgressDialog.show(Reg.this, "Please wait...", "Fetching...", false, false);
+        }
+
+    }
 
     private void signupRequest() {
 
@@ -75,13 +128,9 @@ public class Reg extends AppCompatActivity {
 
                         pg.dismiss();
                         String sm = response.toString();
-                        Log.v(" ",sm);
+                        Log.v(" ", sm);
                         Toast.makeText(Reg.this, response.toString(), Toast.LENGTH_LONG).show();
 
-
-
-
-                        
 
                         if (response.equals("Successfully Signed In")) {
 
@@ -111,13 +160,12 @@ public class Reg extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
 
 
-
                 params.put("FirstName", Firstname.getText().toString());
-                params.put("LastName",Lastname.getText().toString());
+                params.put("LastName", Lastname.getText().toString());
                 params.put("Email", Email.getText().toString());
                 params.put("Mobile", Mobile.getText().toString());
-                params.put("Password",Password.getText().toString());
-                params.put("CreatedDate","Date");
+                params.put("Password", Password.getText().toString());
+                params.put("CreatedDate", "Date");
 
                 return params;
             }
@@ -126,4 +174,8 @@ public class Reg extends AppCompatActivity {
         queue.add(postRequest);
 
     }
+    boolean isEmailValid(CharSequence email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
 }

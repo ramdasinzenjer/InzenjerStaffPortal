@@ -20,8 +20,7 @@
 <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:hint="Enter user ID"
-
+    android:hint="Enter user ID "
     android:layout_marginBottom="32dp"
     android:id="@+id/username"
     android:textSize="25dp"
@@ -64,13 +63,17 @@
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true">
         <Button
+            android:id="@+id/signInId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight=".5"
             android:text="Sign in"
             android:textSize="15dp"
+            android:alpha="0.25"
             android:background="@drawable/rounded"
+
             />
+
 
         <Button
             android:id="@+id/regi_button"
@@ -79,6 +82,7 @@
             android:layout_weight=".5"
             android:text="Register"
             android:textSize="15dp"
+            android:alpha="0.75"
             android:background="@drawable/roundedn"
             />
 
