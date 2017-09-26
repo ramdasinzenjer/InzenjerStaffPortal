@@ -1,14 +1,15 @@
-package com.inzenjer.inzenjerstaffportal;
+package com.inzenjer.inzenjerstaffportal1;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -19,27 +20,43 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Reg extends AppCompatActivity {
     Button regg;
     ProgressDialog pg;
-    EditText username, password, email;
+    EditText Firstname , Lastname , Email , Mobile , Password , ConfirmPassword ;
+    TextView db;
+    SimpleDateFormat dtt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
-        regg = (Button) findViewById(R.id.reggbutton);
+        setTitle("Staff Registation");
+        regg = (Button) findViewById(R.id.ProceedId);
         regg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                username = (EditText) findViewById(R.id.name);
-                password = (EditText) findViewById(R.id.password);
-                email = (EditText) findViewById(R.id.email);
-                signupRequest();
-                pg = ProgressDialog.show(Reg.this, "Please wait...", "Fetching...", false, false);
+                Firstname = (EditText) findViewById(R.id.FirstNameId);
+                Lastname = (EditText) findViewById(R.id.LastNameId);
+                Email = (EditText) findViewById(R.id.EmailId);
+                Mobile = (EditText) findViewById(R.id.MobileId);
+                Password = (EditText) findViewById(R.id.PasswordId);
+                ConfirmPassword = (EditText) findViewById(R.id.PasswordConfirmId);
+
+                    signupRequest();
+                    pg = ProgressDialog.show(Reg.this, "Please wait...", "Fetching...", false, false);
+
+                /*else
+                {
+                    Toast.makeText(Reg.this, "Password Dsnt Match", Toast.LENGTH_SHORT).show();
+                }
+*/
             }
         });
     }
@@ -60,6 +77,11 @@ public class Reg extends AppCompatActivity {
                         String sm = response.toString();
                         Log.v(" ",sm);
                         Toast.makeText(Reg.this, response.toString(), Toast.LENGTH_LONG).show();
+
+
+
+
+                        
 
                         if (response.equals("Successfully Signed In")) {
 
@@ -88,9 +110,14 @@ public class Reg extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
 
-                params.put("Email", username.getText().toString());
-                params.put("Password", password.getText().toString());
-                params.put("Username", email.getText().toString());
+
+
+                params.put("FirstName", Firstname.getText().toString());
+                params.put("LastName",Lastname.getText().toString());
+                params.put("Email", Email.getText().toString());
+                params.put("Mobile", Mobile.getText().toString());
+                params.put("Password",Password.getText().toString());
+                params.put("CreatedDate","Date");
 
                 return params;
             }
