@@ -102,7 +102,7 @@ public class AppMain extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
 
 
-                params.put("Email", tusername.getText().toString());
+                params.put("FirstName", tusername.getText().toString());
                 params.put("Password", tPassword.getText().toString());
 
                 return params;
