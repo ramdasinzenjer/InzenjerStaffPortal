@@ -1,6 +1,7 @@
 package com.inzenjer.inzenjerstaffportal1;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -135,6 +136,8 @@ public class Reg extends AppCompatActivity {
                         if (response.equals("Successfully Signed In")) {
 
                             Toast.makeText(Reg.this, "success", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(Reg.this , AppMain.class);
+                            startActivity(i);
 
                         }
                         if (response.equals("Error Sign in")) {

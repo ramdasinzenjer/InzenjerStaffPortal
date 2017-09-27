@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.inzenjer.inzenjerstaffportal1.Emailauth">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dear youser plaese verify your Email Id"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/button"
+        android:layout_margin="65dp"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/EmailValidation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="click here for Veify Request"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

@@ -58,6 +58,7 @@ public class AppMain extends AppCompatActivity {
     }
 
     private void signin() {
+        Config.Email=tusername.getText().toString().trim();
         pg = ProgressDialog.show(AppMain.this, "Please wait...", "Fetching...", false, false);
         RequestQueue queue = Volley.newRequestQueue(AppMain.this);
         String response = null;
@@ -79,9 +80,10 @@ public class AppMain extends AppCompatActivity {
                             Toast.makeText(AppMain.this, "success", Toast.LENGTH_SHORT).show();
 
                         }
-                        if (response.equals("Fail")) {
+                        if (response.equals("No Auth")) {
 
-                            Toast.makeText(AppMain.this, "fail", Toast.LENGTH_SHORT).show();
+                            Intent i =  new Intent(AppMain.this , Emailauth.class);
+                            startActivity(i);
 
                         }
                     }
