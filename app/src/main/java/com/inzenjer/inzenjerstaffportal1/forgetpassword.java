@@ -35,7 +35,7 @@ public class forgetpassword extends AppCompatActivity {
     private  void Forgetpassword(String s)
     {
         loading = ProgressDialog.show(this, "Please wait...", "Fetching...", false, false);
-        String urlfinal = "https://inzenjerdemo.000webhostapp.com/password.php?id=";
+        String urlfinal = "https://inzenjerdemo.000webhostapp.com/fpassword.php?id=";
         String url = urlfinal+s ;
 
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {

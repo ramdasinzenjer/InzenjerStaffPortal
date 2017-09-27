@@ -27,7 +27,7 @@ import java.util.Map;
 public class AppMain extends AppCompatActivity {
     private String username, password;
     Button login, registration;
-    TextView forget_Password;
+    Button forget_Password;
     EditText tusername, tPassword;
     ProgressDialog pg;
 
@@ -40,7 +40,7 @@ public class AppMain extends AppCompatActivity {
         registration = (Button) findViewById(R.id.regi_button);
         tusername = (EditText) findViewById(R.id.username);
         tPassword = (EditText) findViewById(R.id.userpassword);
-        forget_Password = (TextView) findViewById(R.id.textView2);
+        forget_Password = (Button) findViewById(R.id.textView2);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,14 +52,13 @@ public class AppMain extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(AppMain.this, Reg.class);
                 startActivity(i);
-                forget_Password.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        fgtpassword();
-                    }
-                });
 
-
+            }
+        });
+        forget_Password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fgtpassword();
             }
         });
     }
@@ -123,6 +122,7 @@ public class AppMain extends AppCompatActivity {
     }
     private void fgtpassword()
     {
-
+Intent i = new Intent(AppMain.this , forgetpassword.class);
+        startActivity(i);
     }
 }

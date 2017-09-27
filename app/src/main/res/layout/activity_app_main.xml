@@ -42,7 +42,7 @@
         android:layout_alignStart="@+id/textView"
         android:layout_marginLeft="26dp"
         android:layout_marginStart="26dp" />
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password"
@@ -52,7 +52,9 @@
         android:id="@+id/textView2"
         android:layout_below="@+id/userpassword"
         android:layout_alignRight="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout" />
+        android:layout_alignEnd="@+id/linearLayout"
+        android:background="@drawable/emptyback"
+        />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="300dp"
