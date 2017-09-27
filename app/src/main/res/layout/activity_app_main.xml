@@ -18,8 +18,8 @@
     android:layout_centerHorizontal="true" />
 
 <EditText
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="100dp"
+    android:layout_height="50dp"
     android:hint="Enter user ID "
     android:layout_marginBottom="32dp"
     android:id="@+id/username"
@@ -31,8 +31,8 @@
     android:layout_alignEnd="@+id/userpassword" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:hint="Enter password"
         android:id="@+id/userpassword"
         android:inputType="textPassword"

@@ -40,6 +40,7 @@ public class AppMain extends AppCompatActivity {
         registration = (Button) findViewById(R.id.regi_button);
         tusername = (EditText) findViewById(R.id.username);
         tPassword = (EditText) findViewById(R.id.userpassword);
+        forget_Password = (TextView) findViewById(R.id.textView2);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +52,12 @@ public class AppMain extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(AppMain.this, Reg.class);
                 startActivity(i);
+                forget_Password.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        fgtpassword();
+                    }
+                });
 
 
             }
@@ -72,12 +79,13 @@ public class AppMain extends AppCompatActivity {
                         pg.dismiss();
                         String sm = response.toString();
                         Log.v(" ", sm);
-                        Toast.makeText(AppMain.this, response.toString(), Toast.LENGTH_LONG).show();
 
-
+                        Toast.makeText(AppMain.this, sm, Toast.LENGTH_SHORT).show();
                         if (response.equals("Successfully Signed In")) {
 
-                            Toast.makeText(AppMain.this, "success", Toast.LENGTH_SHORT).show();
+                           Intent i = new Intent(AppMain.this , Home.class);
+                            startActivity(i);
+
 
                         }
                         if (response.equals("No Auth")) {
@@ -112,5 +120,9 @@ public class AppMain extends AppCompatActivity {
         };
         postRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(postRequest);
+    }
+    private void fgtpassword()
+    {
+
     }
 }

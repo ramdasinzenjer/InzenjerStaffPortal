@@ -19,7 +19,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Reg" />
-        <activity android:name=".Emailauth"></activity>
+        <activity android:name=".Emailauth" />
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".forgetpassword"></activity>
     </application>
 
 </manifest>
