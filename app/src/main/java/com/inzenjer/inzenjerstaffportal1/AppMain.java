@@ -35,7 +35,6 @@ public class AppMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_main);
-        getSupportActionBar().hide();
         login = (Button) findViewById(R.id.signInId);
         registration = (Button) findViewById(R.id.regi_button);
         tusername = (EditText) findViewById(R.id.username);
