@@ -1,95 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
-<LinearLayout
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
-    <RelativeLayout
-     android:layout_width="match_parent"
-     android:layout_height="141dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welocme To Inzenjer Portal"
-            android:textSize="20dp"
-            android:paddingBottom="20dp"
-            android:textColor="@color/black"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            />
-
- </RelativeLayout>
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".2"
         android:orientation="vertical">
 
-        <View
-            android:id="@+id/color"
-            android:layout_width="fill_parent"
-            android:layout_height="15dp"
-            android:background="@drawable/capture" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/roundedn"
-            android:hint="  Email" />
-
-        <EditText
-
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/roundedn"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="25dp"
-            android:hint="  Password" />
-
-
-        <TextView
-            android:layout_gravity="right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Forgot Password ?"
-            android:layout_marginRight="10dp"
-            android:textColor="#0022ff"/>
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/capture" />
-
         <RelativeLayout
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
+            android:layout_height="141dp">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                android:background="@drawable/roundedbt"
-                android:text="             Login             "/>
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="20dp"
+                android:text="Welocme To Inzenjer Portal"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
         </RelativeLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".4">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".2"
+            android:orientation="vertical">
 
+            <View
+                android:id="@+id/color"
+                android:layout_width="fill_parent"
+                android:layout_height="15dp"
+                android:background="@drawable/capture" />
+
+            <EditText
+                android:id="@+id/email_username"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/roundedn"
+                android:hint="  Email" />
+
+            <EditText
+                android:id="@+id/passwordid"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/roundedn"
+                android:hint="  Password" />
+
+
+            <TextView
+                android:id="@+id/forgetpossword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Forgot Password ?"
+                android:textColor="#0022ff" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/capture" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:id="@+id/loginid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/roundedbt"
+                    android:text="             Login             "
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".4">
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 </RelativeLayout>

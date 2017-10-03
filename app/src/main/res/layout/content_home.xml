@@ -10,7 +10,7 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Oops Its on the Way"
+    android:text="Home"
     tools:layout_editor_absoluteY="247dp"
     tools:layout_editor_absoluteX="130dp" />
 </android.support.constraint.ConstraintLayout>

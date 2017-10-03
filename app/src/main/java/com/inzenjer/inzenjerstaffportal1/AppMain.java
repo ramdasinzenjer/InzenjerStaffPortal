@@ -4,8 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,41 +18,41 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.inzenjer.inzenjerstaffportal1.configs.Config;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class AppMain extends AppCompatActivity {
     private String username, password;
-    Button login, registration;
-    Button forget_Password;
+    Button login;
+    TextView fgt;
     EditText tusername, tPassword;
     ProgressDialog pg;
+    String status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_main);
-        login = (Button) findViewById(R.id.signInId);
-        registration = (Button) findViewById(R.id.regi_button);
-        tusername = (EditText) findViewById(R.id.username);
-        tPassword = (EditText) findViewById(R.id.userpassword);
-        forget_Password = (Button) findViewById(R.id.textView2);
+        login = (Button) findViewById(R.id.loginid);
+        tusername = (EditText) findViewById(R.id.email_username);
+        tPassword = (EditText) findViewById(R.id.passwordid);
+        fgt = (TextView) findViewById(R.id.forgetpossword);
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signin();
+                ;
             }
         });
-        registration.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(AppMain.this, Reg.class);
-                startActivity(i);
 
-            }
-        });
-        forget_Password.setOnClickListener(new View.OnClickListener() {
+        fgt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 fgtpassword();
@@ -63,7 +61,7 @@ public class AppMain extends AppCompatActivity {
     }
 
     private void signin() {
-        Config.Email=tusername.getText().toString().trim();
+        Config.Email = tusername.getText().toString().trim();
         pg = ProgressDialog.show(AppMain.this, "Please wait...", "Fetching...", false, false);
         RequestQueue queue = Volley.newRequestQueue(AppMain.this);
         String response = null;
@@ -76,20 +74,30 @@ public class AppMain extends AppCompatActivity {
 
                         pg.dismiss();
                         String sm = response.toString();
-                        Log.v(" ", sm);
 
-                        Toast.makeText(AppMain.this, sm, Toast.LENGTH_SHORT).show();
-                        if (response.equals("Successfully Signed In")) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray result = jsonObject.getJSONArray("result");
+                            JSONObject employee = result.getJSONObject(0);
+                            status = employee.getString("status");
+                            //Toast.makeText(AppMain.this, sm , Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(AppMain.this, status, Toast.LENGTH_SHORT).show();
 
-                           Intent i = new Intent(AppMain.this , Home.class);
+
+                        } catch (JSONException e) {
+                            Toast.makeText(AppMain.this, e.toString(), Toast.LENGTH_SHORT).show();
+                            e.printStackTrace();
+                        }
+                        if (status.equals("sucess")) {
+
+                            Intent i = new Intent(AppMain.this, Home.class);
                             startActivity(i);
 
 
                         }
-                        if (response.equals("No Auth")) {
+                        if (status.equals("Fail")) {
 
-                            Intent i =  new Intent(AppMain.this , Emailauth.class);
-                            startActivity(i);
+                            Toast.makeText(AppMain.this, "No User ", Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -119,9 +127,9 @@ public class AppMain extends AppCompatActivity {
         postRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(postRequest);
     }
-    private void fgtpassword()
-    {
-Intent i = new Intent(AppMain.this , forgetpassword.class);
+
+    private void fgtpassword() {
+        Intent i = new Intent(AppMain.this, forgetpassword.class);
         startActivity(i);
     }
 }
