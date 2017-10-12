@@ -34,6 +34,7 @@ public class AppMain extends AppCompatActivity {
     EditText tusername, tPassword;
     ProgressDialog pg;
     String status;
+    TextView txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class AppMain extends AppCompatActivity {
         tusername = (EditText) findViewById(R.id.email_username);
         tPassword = (EditText) findViewById(R.id.passwordid);
         fgt = (TextView) findViewById(R.id.forgetpossword);
+         //txt = (TextView) findViewById(R.id.username_dis);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +66,7 @@ public class AppMain extends AppCompatActivity {
         Config.Email = tusername.getText().toString().trim();
         pg = ProgressDialog.show(AppMain.this, "Please wait...", "Fetching...", false, false);
         RequestQueue queue = Volley.newRequestQueue(AppMain.this);
-        String response = null;
+        String response = "";
         final String finalResponse = response;
         String S_URL = "https://inzenjerdemo.000webhostapp.com/login.php";
         StringRequest postRequest = new StringRequest(Request.Method.POST, S_URL,
@@ -73,13 +75,23 @@ public class AppMain extends AppCompatActivity {
                     public void onResponse(String response) {
 
                         pg.dismiss();
-                        String sm = response.toString();
+                        //String sm = response.toString();
 
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray result = jsonObject.getJSONArray("result");
-                            JSONObject employee = result.getJSONObject(0);
-                            status = employee.getString("status");
+                            JSONObject employee = result.getJSONObject(1);
+                           status = employee.getString("status");
+                            Config.Name = employee.getString("Name");
+                            Config.Dob = employee.getString("dob");
+                            Config.Mobile = employee.getString("Mobile");
+                            Config.Photo = employee.getString("photo");
+
+                            //Toast.makeText(AppMain.this, response, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(AppMain.this, status, Toast.LENGTH_SHORT).show();
+                           // View inflatedView = getLayoutInflater().inflate(R.layout.content_home, null);
+                           // TextView text = (TextView) inflatedView.findViewById(R.id.username_dis);
+                           // text.setText(Config.Name);
                             //Toast.makeText(AppMain.this, sm , Toast.LENGTH_SHORT).show();
                             //Toast.makeText(AppMain.this, status, Toast.LENGTH_SHORT).show();
 

@@ -18,13 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Reg" />
-        <activity android:name=".Emailauth" />
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".forgetpassword"></activity>
+        <activity android:name=".forgetpassword" />
+        <activity android:name=".Notification"></activity>
     </application>
 
 </manifest>
