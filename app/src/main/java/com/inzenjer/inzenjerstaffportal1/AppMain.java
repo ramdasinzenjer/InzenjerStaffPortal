@@ -130,9 +130,10 @@ public class AppMain extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
 
 
-                params.put("FirstName", tusername.getText().toString());
-                params.put("Password", tPassword.getText().toString());
-
+                //params.put("FirstName", tusername.getText().toString());
+                //params.put("Password", tPassword.getText().toString());
+                params.put("FirstName", "ras");
+                params.put("Password", "123");
                 return params;
             }
         };

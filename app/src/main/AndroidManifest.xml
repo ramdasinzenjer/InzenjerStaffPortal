@@ -23,7 +23,8 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".forgetpassword" />
-        <activity android:name=".Notification"></activity>
+        <activity android:name=".Notification" />
+        <activity android:name=".ProfileUpdate"></activity>
     </application>
 
 </manifest>

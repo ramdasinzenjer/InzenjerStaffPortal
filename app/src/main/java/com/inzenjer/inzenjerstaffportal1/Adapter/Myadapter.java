@@ -3,11 +3,14 @@ package com.inzenjer.inzenjerstaffportal1.Adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.inzenjer.inzenjerstaffportal1.Notification;
 import com.inzenjer.inzenjerstaffportal1.R;
 
 import java.util.List;
@@ -26,9 +29,17 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(Myadapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final Myadapter.ViewHolder holder, int position) {
         final String name = values.get(position);
         holder.notify.setText(name);
+        holder.notify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Notification nn = new Notification();
+                String temp = holder.notify.getText().toString();
+                nn.clicker(temp);
+            }
+        });
     }
 
     @Override
