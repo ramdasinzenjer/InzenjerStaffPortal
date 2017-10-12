@@ -1,5 +1,6 @@
 package com.inzenjer.inzenjerstaffportal1;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +22,8 @@ public class Notification extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    Context context;
+    public Notification activity;
+    public final Context context = Notification.this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class Notification extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
         recyclerView = (RecyclerView) findViewById(R.id.notificationView);
         Toast.makeText(this, Config.Dob, Toast.LENGTH_SHORT).show();
+        activity = this;
         if (Config.Dob == null) {
             input.add("Update your Date of birth");
         }
@@ -41,7 +44,7 @@ public class Notification extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new Myadapter(input);
+        mAdapter = new Myadapter(input , this);
         recyclerView.setAdapter(mAdapter);
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback =
@@ -63,24 +66,9 @@ public class Notification extends AppCompatActivity {
 
     }
 
-    public void clicker(String temp) {
-        if (temp.contains("Date")) {
-            Log.e("You are at", "work");
-            //Toast.makeText(, "Date of birth", Toast.LENGTH_SHORT).show();
-        }
 
-            if (temp.contains("Profile")) {
-                Log.e("You are at", "profile");
-                Intent i = new Intent(Notification.this.getApplicationContext() , Notification.class);
-                context.getApplicationContext().startActivity(i);
-                //Toast.makeText(this, "Date of birth", Toast.LENGTH_SHORT).show();
-            }
+    public void clicker(String temp , Context context ) {
 
-
-        if (temp.contains("Phone")) {
-            Log.e("You are at", "Phone");
-            //Toast.makeText(this, "Date of birth", Toast.LENGTH_SHORT).show();
-        }
 
     }
 }

@@ -1,6 +1,8 @@
 package com.inzenjer.inzenjerstaffportal1.Adapter;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.util.Log;
@@ -11,12 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.inzenjer.inzenjerstaffportal1.Notification;
+import com.inzenjer.inzenjerstaffportal1.ProfileUpdate;
 import com.inzenjer.inzenjerstaffportal1.R;
 
 import java.util.List;
 
 public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
     private List<String> values;
+    public Context context;
     @Override
     public Myadapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(
@@ -37,7 +41,25 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
             public void onClick(View view) {
             Notification nn = new Notification();
                 String temp = holder.notify.getText().toString();
-                nn.clicker(temp);
+                //nn.clicker(temp , context);
+                if (temp.contains("Date")) {
+                    Log.e("You are at", "work");
+                    //Toast.makeText(, "Date of birth", Toast.LENGTH_SHORT).show();
+                }
+
+                if (temp.contains("Profile")) {
+                    Log.e("You are at", "profile");
+                    Intent i = new Intent(context , ProfileUpdate.class);
+                    view.getContext().startActivity(i);
+                    //Toast.(this, "Date of birth", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+                if (temp.contains("Phone")) {
+                    Log.e("You are at", "Phone");
+                    //Toast.makeText(this, "Date of birth", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -64,8 +86,9 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
         values.remove(position);
         notifyItemRemoved(position);
     }
-    public Myadapter(List<String> myDataset) {
+    public Myadapter(List<String> myDataset , Context context) {
         values = myDataset;
+        this.context = context;
     }
 
 }
