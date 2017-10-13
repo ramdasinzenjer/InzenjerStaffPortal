@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.inzenjer.inzenjerstaffportal1.Adapter.Myadapter;
@@ -23,13 +25,14 @@ public class Notification extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     public Notification activity;
-    public final Context context = Notification.this;
+    public RelativeLayout update_laout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
         recyclerView = (RecyclerView) findViewById(R.id.notificationView);
+        update_laout = (RelativeLayout) findViewById(R.id.relativeUpdate);
         Toast.makeText(this, Config.Dob, Toast.LENGTH_SHORT).show();
         activity = this;
         if (Config.Dob == null) {
@@ -44,7 +47,7 @@ public class Notification extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new Myadapter(input , this);
+        mAdapter = new Myadapter(input , this , update_laout , recyclerView);
         recyclerView.setAdapter(mAdapter);
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback =
@@ -67,8 +70,4 @@ public class Notification extends AppCompatActivity {
     }
 
 
-    public void clicker(String temp , Context context ) {
-
-
-    }
 }
