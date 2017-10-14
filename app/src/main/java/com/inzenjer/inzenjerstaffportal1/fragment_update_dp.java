@@ -89,7 +89,7 @@ public class fragment_update_dp extends Fragment {
                     bittmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
                      bArray = bos.toByteArray();
                     Log.e("str", "str");
-                    conectivity c = new conectivity("jahcgjd",this.getContext() , bArray);
+                    conectivity = new conectivity("jahcgjd",this.getContext() , bArray);
                 }
                 break;
 
