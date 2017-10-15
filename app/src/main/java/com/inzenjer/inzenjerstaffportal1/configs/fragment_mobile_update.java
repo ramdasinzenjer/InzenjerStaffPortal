@@ -50,7 +50,7 @@ public class fragment_mobile_update extends Fragment {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+String s;
                 m = mob.getText().toString();
                 updatemob n = new  updatemob(m);
             }
