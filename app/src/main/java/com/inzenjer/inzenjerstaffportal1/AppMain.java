@@ -2,8 +2,8 @@ package com.inzenjer.inzenjerstaffportal1;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -44,7 +44,7 @@ public class AppMain extends AppCompatActivity {
         tusername = (EditText) findViewById(R.id.email_username);
         tPassword = (EditText) findViewById(R.id.passwordid);
         fgt = (TextView) findViewById(R.id.forgetpossword);
-         //txt = (TextView) findViewById(R.id.username_dis);
+        //txt = (TextView) findViewById(R.id.username_dis);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,17 +81,28 @@ public class AppMain extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray result = jsonObject.getJSONArray("result");
                             JSONObject employee = result.getJSONObject(1);
-                           status = employee.getString("status");
+                            status = employee.getString("status");
                             Config.Name = employee.getString("Name");
-                            Config.Dob = employee.getString("dob");
-                            Config.Mobile = employee.getString("Mobile");
-                            Config.Photo = employee.getString("photo");
 
+                            try {
+                                Config.Mobile = employee.getString("Mobile");
+                            } catch (Exception e) {
+
+                            }
+                            try {
+                                Config.Photo = employee.getString("photo");
+                            } catch (Exception e) {
+
+                            }
+
+//TODO try catch from exeptions
+
+                            Toast.makeText(AppMain.this, Config.Name + " " + Config.Photo + " " + Config.Mobile, Toast.LENGTH_SHORT).show();
                             //Toast.makeText(AppMain.this, response, Toast.LENGTH_SHORT).show();
                             //Toast.makeText(AppMain.this, status, Toast.LENGTH_SHORT).show();
-                           // View inflatedView = getLayoutInflater().inflate(R.layout.content_home, null);
-                           // TextView text = (TextView) inflatedView.findViewById(R.id.username_dis);
-                           // text.setText(Config.Name);
+                            // View inflatedView = getLayoutInflater().inflate(R.layout.content_home, null);
+                            // TextView text = (TextView) inflatedView.findViewById(R.id.username_dis);
+                            // text.setText(Config.Name);
                             //Toast.makeText(AppMain.this, sm , Toast.LENGTH_SHORT).show();
                             //Toast.makeText(AppMain.this, status, Toast.LENGTH_SHORT).show();
 
@@ -132,8 +143,8 @@ public class AppMain extends AppCompatActivity {
 
                 //params.put("FirstName", tusername.getText().toString());
                 //params.put("Password", tPassword.getText().toString());
-                params.put("FirstName", "ras");
-                params.put("Password", "123");
+                params.put("FirstName", "jojikennady@gmail.com");
+                params.put("Password", "abc");
                 return params;
             }
         };

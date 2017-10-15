@@ -34,13 +34,15 @@ public class Notification extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.notificationView);
         update_laout = (RelativeLayout) findViewById(R.id.relativeUpdate);
         Toast.makeText(this, Config.Dob, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, Config.Photo, Toast.LENGTH_SHORT).show();
         activity = this;
+
         if (Config.Dob == null) {
             input.add("Update your Date of birth");
         }
-        if (Config.Photo == null) {
+       // if (Config.Photo == null) {
             input.add("Update Your Profile image");
-        }
+       // }
         if (Config.Mobile == null) {
             input.add("Update your Phone number");
         }

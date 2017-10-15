@@ -28,14 +28,16 @@ import java.util.Map;
 
 public class conectivity {
 
-    String url;
+    String url,sd;
     Context context;
-    byte[] bArray;
-   public conectivity(String url , Context context , byte[] bArray )
+    ProgressDialog pg;
+
+   public conectivity(String url , Context context , String sd , ProgressDialog pg )
     {
         this.url=url;
         this.context=context;
-        this.bArray = bArray;
+        this.sd = sd;
+        this.pg = pg;
         signin();
 
     }
@@ -51,11 +53,11 @@ public class conectivity {
 
 
                         //String sm = response.toString();
-
+pg.dismiss();
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray result = jsonObject.getJSONArray("result");
-                            JSONObject employee = result.getJSONObject(1);
+                            JSONObject employee = result.getJSONObject(0);
                          //TODO add json parser
 
                             //Toast.makeText(AppMain.this, response, Toast.LENGTH_SHORT).show();
@@ -104,8 +106,9 @@ public class conectivity {
 
                 //params.put("FirstName", tusername.getText().toString());
                 //params.put("Password", tPassword.getText().toString());
-                params.put("Image", "jghhhgj" );
-                params.put("Password", "123");
+                params.put("Password", "abc" );
+                params.put("FirstName", "jojikennady@gmail.com" );
+                params.put("photo", sd );
                 return params;
             }
         };

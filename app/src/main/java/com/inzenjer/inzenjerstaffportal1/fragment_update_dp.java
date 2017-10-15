@@ -1,5 +1,6 @@
 package com.inzenjer.inzenjerstaffportal1;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -35,6 +36,7 @@ public class fragment_update_dp extends Fragment {
     Bitmap bittmap;
     String s;
     byte[] bArray;
+    ProgressDialog pg;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,16 +90,18 @@ public class fragment_update_dp extends Fragment {
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
                     bittmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
                      bArray = bos.toByteArray();
-                    Log.e("str", "str");
-                    conectivity c = new conectivity("jahcgjd",this.getContext() , bArray);
+                    String sd= Base64.encodeToString( bArray , 1);
+                    pg = ProgressDialog.show(this.getContext(), "Please wait...", "Fetching...", false, false);
+                    conectivity c = new conectivity("https://inzenjerdemo.000webhostapp.com/updatephoto.php",this.getContext() , sd , pg);
                 }
                 break;
 
         }
 
-        generateNoteOnSD(this.getContext(), "stext",bArray );
+//        generateNoteOnSD(this.getContext(), "stext",bArray );
     }
 
+/*
     public void generateNoteOnSD(Context context, String sFileName, byte[] sBody) {
         try {
             File root = new File(Environment.getExternalStorageDirectory(), "Notes");
@@ -116,5 +120,6 @@ public class fragment_update_dp extends Fragment {
             Log.e("txt",e.toString());
         }
     }
+*/
 }
 
