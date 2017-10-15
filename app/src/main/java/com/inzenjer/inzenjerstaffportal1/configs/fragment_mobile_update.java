@@ -1,6 +1,7 @@
 package com.inzenjer.inzenjerstaffportal1.configs;
 
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,8 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,7 +52,7 @@ public class fragment_mobile_update extends Fragment {
             public void onClick(View view) {
 
                 m = mob.getText().toString();
-                updatemob = new  updatemob(m);
+                updatemob n = new  updatemob(m);
             }
 
         });
