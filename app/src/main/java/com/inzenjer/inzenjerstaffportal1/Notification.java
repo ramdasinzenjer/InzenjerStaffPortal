@@ -40,9 +40,9 @@ public class Notification extends AppCompatActivity {
         if (Config.Dob == null) {
             input.add("Update your Date of birth");
         }
-       // if (Config.Photo == null) {
+       if (Config.Photo == null) {
             input.add("Update Your Profile image");
-       // }
+       }
         if (Config.Mobile == null) {
             input.add("Update your Phone number");
         }

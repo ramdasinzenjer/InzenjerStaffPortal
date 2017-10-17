@@ -2,7 +2,6 @@ package com.inzenjer.inzenjerstaffportal1.Adapter;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -13,34 +12,27 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.inzenjer.inzenjerstaffportal1.AppMain;
-import com.inzenjer.inzenjerstaffportal1.Home;
-import com.inzenjer.inzenjerstaffportal1.configs.Config;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
-
 public class conectivity {
 
-    String url,sd;
+    String url, sd, status;
     Context context;
     ProgressDialog pg;
 
-   public conectivity(String url , Context context , String sd , ProgressDialog pg )
-    {
-        this.url=url;
-        this.context=context;
+    public conectivity(String url, Context context, String sd, ProgressDialog pg) {
+        this.url = url;
+        this.context = context;
         this.sd = sd;
         this.pg = pg;
         signin();
 
+
     }
+
     private void signin() {
         RequestQueue queue = Volley.newRequestQueue(context);
         String response = "";
@@ -53,14 +45,16 @@ public class conectivity {
 
 
                         //String sm = response.toString();
-pg.dismiss();
+                        pg.dismiss();
+                        Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
                         try {
-                            JSONObject jsonObject = new JSONObject(response);
+                            /*JSONObject jsonObject = new JSONObject(response);
                             JSONArray result = jsonObject.getJSONArray("result");
-                            JSONObject employee = result.getJSONObject(0);
-                         //TODO add json parser
+                            JSONObject employee = result.getJSONObject(1);
+                            status = employee.getString("status");*/
+                            //TODO add json parser
 
-                            //Toast.makeText(AppMain.this, response, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
                             //Toast.makeText(AppMain.this, status, Toast.LENGTH_SHORT).show();
                             // View inflatedView = getLayoutInflater().inflate(R.layout.content_home, null);
                             // TextView text = (TextView) inflatedView.findViewById(R.id.username_dis);
@@ -69,23 +63,23 @@ pg.dismiss();
                             //Toast.makeText(AppMain.this, status, Toast.LENGTH_SHORT).show();
 
 
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
-                      //  if (status.equals("sucess"))
+                    /*  if (status.equals("sucess"))
                         {
 
-
+                            Toast.makeText(context, "Succ", Toast.LENGTH_SHORT).show();
 
 
                         }
-                       // if (status.equals("Fail"))
+                        if (status.equals("Fail"))
                         {
 
+                            Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
 
-
-                        }
+                        }*/
                     }
                 },
                 new Response.ErrorListener() {
@@ -106,9 +100,9 @@ pg.dismiss();
 
                 //params.put("FirstName", tusername.getText().toString());
                 //params.put("Password", tPassword.getText().toString());
-                params.put("Password", "abc" );
-                params.put("FirstName", "jojikennady@gmail.com" );
-                params.put("photo", sd );
+                params.put("Password", "abc");
+                params.put("FirstName", "jojikennady@gmail.com");
+                params.put("photo", sd);
                 return params;
             }
         };
