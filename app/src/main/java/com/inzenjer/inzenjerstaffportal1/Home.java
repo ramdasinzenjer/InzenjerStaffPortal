@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.inzenjer.inzenjerstaffportal1.configs.Config;
 
@@ -50,6 +51,19 @@ public class Home extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
         ImageView imageView = (ImageView) header.findViewById(R.id.imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Home.this, "Long Press to update profile picture", Toast.LENGTH_SHORT).show();
+            }
+        });
+        imageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Toast.makeText(Home.this, "longggggggggggggg", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
         byte[]  imageBytes = Base64.decode(Config.Photo, Base64.DEFAULT);
         Bitmap decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
         imageView.setImageBitmap(decodedImage);
