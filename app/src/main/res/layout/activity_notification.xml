@@ -5,28 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.inzenjer.inzenjerstaffportal1.Notification">
-    <RelativeLayout
-        android:id="@+id/relativeUpdate"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <fragment
-        android:id="@+id/details_fragment"
-        class="com.inzenjer.inzenjerstaffportal1.fragment_update_dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/mobNoUpdate"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <fragment
-            android:id="@+id/fragmentMobileupdate"
-            class="com.inzenjer.inzenjerstaffportal1.fragment_update_dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </RelativeLayout>
+
+
 <android.support.v7.widget.RecyclerView
     android:visibility="visible"
     android:id="@+id/notificationView"

@@ -32,7 +32,6 @@ public class Notification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
         recyclerView = (RecyclerView) findViewById(R.id.notificationView);
-        update_laout = (RelativeLayout) findViewById(R.id.relativeUpdate);
         Toast.makeText(this, Config.Dob, Toast.LENGTH_SHORT).show();
         Toast.makeText(this, Config.Photo, Toast.LENGTH_SHORT).show();
         activity = this;
