@@ -3,6 +3,7 @@ package com.inzenjer.inzenjerstaffportal1;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -60,7 +61,8 @@ public class Home extends AppCompatActivity
         imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast.makeText(Home.this, "longggggggggggggg", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(Home.this,Updatedp.class);
+                startActivity(i);
                 return false;
             }
         });
@@ -125,4 +127,5 @@ public class Home extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

@@ -1,5 +1,6 @@
 package com.inzenjer.inzenjerstaffportal1;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -29,21 +30,20 @@ import java.io.IOException;
 import static android.app.Activity.RESULT_OK;
 
 
-public class fragment_update_dp extends Fragment {
+public class Updatedp extends Activity {
     ImageView imageView;
     TextView textview;
-    Context context = this.getContext();
+    Context context = this;
     Bitmap bittmap;
     String s;
     byte[] bArray;
     ProgressDialog pg;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_updatedp);
 
-        View root = inflater.inflate(R.layout.fragment_updateprofile, container, false);
-        Button bt = (Button) root.findViewById(R.id.update_image);
+        Button bt = (Button) findViewById(R.id.update_image);
         // imageView = (ImageView) root.findViewById(R.id.imgimg);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +53,6 @@ public class fragment_update_dp extends Fragment {
             }
         });
 
-        return root;
 
     }
 
@@ -83,16 +82,16 @@ public class fragment_update_dp extends Fragment {
                 if (resultCode == RESULT_OK) {
                     Uri selectedImage = imageReturnedIntent.getData();
                     try {
-                        bittmap = MediaStore.Images.Media.getBitmap(this.getContext().getContentResolver(), selectedImage);
+                        bittmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
                     bittmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
-                     bArray = bos.toByteArray();
+                    bArray = bos.toByteArray();
                     String sd= Base64.encodeToString( bArray , 1);
-                    pg = ProgressDialog.show(this.getContext(), "Please wait...", "Fetching...", false, false);
-                    conectivity c = new conectivity("https://inzenjerdemo.000webhostapp.com/updatephoto.php",this.getContext() , sd , pg);
+                    pg = ProgressDialog.show(this, "Please wait...", "Fetching...", false, false);
+                    conectivity c = new conectivity("https://inzenjerdemo.000webhostapp.com/updatephoto.php",this , sd , pg);
                 }
                 break;
 

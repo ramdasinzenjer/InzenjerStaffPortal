@@ -1,6 +1,7 @@
 package com.inzenjer.inzenjerstaffportal1.Adapter;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,8 @@ import android.widget.Toast;
 import com.inzenjer.inzenjerstaffportal1.Notification;
 import com.inzenjer.inzenjerstaffportal1.ProfileUpdate;
 import com.inzenjer.inzenjerstaffportal1.R;
+import com.inzenjer.inzenjerstaffportal1.Updatedp;
+import com.inzenjer.inzenjerstaffportal1.mobileupdated;
 
 import java.util.List;
 
@@ -46,16 +49,17 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
                 String temp = holder.notify.getText().toString();
 
                 if (temp.contains("Date")) {
-                    Log.e("You are at", "work");
-
+//                    Log.e("You are at", "work");
+                    Intent i = new Intent(context , mobileupdated.class);
+                    context.startActivity(i);
                 }
 
                else if (temp.contains("Profile")) {
-                    Log.e("You are at", "profile");
+                   /* Log.e("You are at", "profile");*/
                    /* Intent i = new Intent(context , ProfileUpdate.class);
                     view.getContext().startActivity(i);*/
-                   rel.setVisibility(View.VISIBLE);
-                    recy.setVisibility(View.INVISIBLE);
+                   Intent i = new Intent(context , Updatedp.class);
+                    context.startActivity(i);
 
                 }
 
