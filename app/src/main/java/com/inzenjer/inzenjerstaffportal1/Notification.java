@@ -1,15 +1,10 @@
 package com.inzenjer.inzenjerstaffportal1;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
-import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -39,16 +34,16 @@ public class Notification extends AppCompatActivity {
         if (Config.Dob == null) {
             input.add("Update your Date of birth");
         }
-       if (Config.Photo == null) {
+        if (Config.Photo == null) {
             input.add("Update Your Profile image");
-       }
+        }
         if (Config.Mobile == null) {
             input.add("Update your Phone number");
         }
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new Myadapter(input , this , update_laout , recyclerView);
+        mAdapter = new Myadapter(input, this, update_laout, recyclerView);
         recyclerView.setAdapter(mAdapter);
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback =
